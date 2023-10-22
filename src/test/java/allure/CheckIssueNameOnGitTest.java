@@ -45,7 +45,6 @@ public class CheckIssueNameOnGitTest extends TestBaseExtended {
 
     @DisplayName("Тест на проверку задачи с лямбд")
     @Test
-    @Tag("remote")
     void selenideLambdaStep(){
 
         step("Открываем сайт Гитхаба", () -> {
@@ -74,7 +73,6 @@ public class CheckIssueNameOnGitTest extends TestBaseExtended {
 
     @DisplayName("Тест на проверку задачи с WebStep")
     @Test
-    @Tag("remote")
     void webStepTest(){
 
         WebStep webStep = new WebStep();
