@@ -14,12 +14,12 @@ public class TestBaseExtended {
     static void beforeAll(){
         Configuration.remote = "http://31.129.109.167:8080/wd/hub";
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "104.0";
+        Configuration.browserVersion = "117.0";
     }
 
     @BeforeEach
     public void setup(){
-        Configuration.pageLoadTimeout = 60000;
+//        Configuration.pageLoadTimeout = 60000;
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
