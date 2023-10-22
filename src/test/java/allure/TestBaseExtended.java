@@ -4,8 +4,11 @@ import com.codeborne.selenide.Configuration;
 import helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class TestBaseExtended {
@@ -16,13 +19,18 @@ public class TestBaseExtended {
         Configuration.browser = "chrome";
         Configuration.browserVersion = "104.0";
 
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
 
-        Configuration.browserCapabilities = desiredCapabilities;
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability("browserVersion", "104.0");
+        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
+            /* How to set session timeout */
+            put("sessionTimeout", "1m");
+
+            /* How to enable video recording */
+            put("enableVideo", true);
+        }});
+
+        Configuration.browserCapabilities = options;
     }
 
     @AfterEach
