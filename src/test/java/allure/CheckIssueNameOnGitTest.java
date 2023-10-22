@@ -19,7 +19,6 @@ public class CheckIssueNameOnGitTest extends TestBaseExtended {
 
     @DisplayName("Тест на проверку задачи с использованием Listener")
     @Test
-    @Tag("remote")
     void selenideTest(){
         open("https://github.com");
 
@@ -38,6 +37,7 @@ public class CheckIssueNameOnGitTest extends TestBaseExtended {
 
     @DisplayName("Тест на проверку задачи с лямбд")
     @Test
+    @Tag("remote")
     void selenideLambdaStep(){
 
         step("Открываем сайт Гитхаба", () -> {
