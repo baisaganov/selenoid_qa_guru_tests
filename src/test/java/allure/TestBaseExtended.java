@@ -19,7 +19,7 @@ public class TestBaseExtended {
 
     @BeforeEach
     public void setup(){
-//        Configuration.pageLoadTimeout = 60000;
+        Configuration.pageLoadTimeout = 60000;
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
