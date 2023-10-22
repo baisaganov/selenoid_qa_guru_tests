@@ -17,13 +17,6 @@ import static io.qameta.allure.Allure.step;
 
 public class CheckIssueNameOnGitTest extends TestBaseExtended {
 
-    @BeforeEach
-    public void setup(){
-        Configuration.pageLoadTimeout = 60000;
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
-    }
-
     @DisplayName("Тест на проверку задачи с использованием Listener")
     @Test
     @Tag("remote")
