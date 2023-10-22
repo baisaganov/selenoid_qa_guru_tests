@@ -18,13 +18,13 @@ public class SelenideTest {
 
     @BeforeEach
     public void setup(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.pageLoadTimeout = 60000;
     }
 
     @Name("Проверка нахождения issue под номер 80")
     @Test
     public void testIssueSearch(){
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открываем сайт", () -> {
             open("https://github.com");

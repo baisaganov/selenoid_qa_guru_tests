@@ -8,23 +8,26 @@ import io.qameta.allure.selenide.AllureSelenide;
 import jdk.jfr.Name;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class CheckIssueNameOnGitTest {
+public class CheckIssueNameOnGitTest extends TestBaseExtended {
 
     @BeforeEach
     public void setup(){
         Configuration.pageLoadTimeout = 60000;
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
     }
 
     @DisplayName("Тест на проверку задачи с использованием Listener")
     @Test
+    @Tag("remote")
     void selenideTest(){
-        SelenideLogger.addListener("allur", new AllureSelenide());
         open("https://github.com");
 
         $("[data-target='qbsearch-input.inputButtonText']").click();
@@ -42,8 +45,8 @@ public class CheckIssueNameOnGitTest {
 
     @DisplayName("Тест на проверку задачи с лямбд")
     @Test
+    @Tag("remote")
     void selenideLambdaStep(){
-        SelenideLogger.addListener("allur", new AllureSelenide());
 
         step("Открываем сайт Гитхаба", () -> {
             open("https://github.com");
@@ -71,8 +74,8 @@ public class CheckIssueNameOnGitTest {
 
     @DisplayName("Тест на проверку задачи с WebStep")
     @Test
+    @Tag("remote")
     void webStepTest(){
-        SelenideLogger.addListener("allur", new AllureSelenide());
 
         WebStep webStep = new WebStep();
 
