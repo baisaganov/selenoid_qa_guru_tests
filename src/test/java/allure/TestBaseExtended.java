@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class TestBaseExtended {
     @BeforeAll
     static void beforeAll(){
-        Configuration.remote = "http://localhost:8080/wd/hub";
+        Configuration.remote = "http://31.129.109.167:8080/wd/hub";
         Configuration.browser = "chrome";
         Configuration.browserVersion = "117.0";
     }
