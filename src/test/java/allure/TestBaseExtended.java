@@ -16,13 +16,13 @@ public class TestBaseExtended {
         Configuration.browser = "chrome";
         Configuration.browserVersion = "104.0";
 
-//        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-//        desiredCapabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//
-//        Configuration.browserCapabilities = desiredCapabilities;
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+
+        Configuration.browserCapabilities = desiredCapabilities;
     }
 
     @AfterEach
@@ -30,6 +30,6 @@ public class TestBaseExtended {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-//        Attach.getVideoUrl();
+        Attach.getVideoUrl();
     }
 }
