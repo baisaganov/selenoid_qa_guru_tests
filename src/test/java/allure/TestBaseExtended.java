@@ -1,12 +1,10 @@
 package allure;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 public class TestBaseExtended {
@@ -15,12 +13,23 @@ public class TestBaseExtended {
         Configuration.remote = "http://31.129.109.167:8080/wd/hub";
         Configuration.browser = "chrome";
         Configuration.browserVersion = "117.0";
-    }
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
 
-    @BeforeEach
-    public void setup(){
-        Configuration.pageLoadTimeout = 60000;
-        SelenideLogger.addListener("allure", new AllureSelenide());
+
+//        ChromeOptions options = new ChromeOptions();
+//        options.setCapability("browserVersion", "104.0");
+//        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
+//            /* How to set session timeout */
+//            put("sessionTimeout", "1m");
+//
+//            /* How to enable video recording */
+//            put("enableVideo", true);
+//        }});
+//
+//        Configuration.browserCapabilities = options;
     }
 
     @AfterEach
@@ -28,5 +37,6 @@ public class TestBaseExtended {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
