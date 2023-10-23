@@ -22,17 +22,17 @@ public class TestBaseExtended {
 //        Configuration.browserCapabilities = capabilities;
 
 
-        ChromeOptions options = new ChromeOptions();
-        options.setCapability("browserVersion", "104.0");
-        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
-            /* How to set session timeout */
-            put("sessionTimeout", "1m");
-
-            /* How to enable video recording */
-            put("enableVideo", true);
-        }});
-
-        Configuration.browserCapabilities = options;
+//        ChromeOptions options = new ChromeOptions();
+//        options.setCapability("browserVersion", "104.0");
+//        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
+//            /* How to set session timeout */
+//            put("sessionTimeout", "1m");
+//
+//            /* How to enable video recording */
+//            put("enableVideo", true);
+//        }});
+//
+//        Configuration.browserCapabilities = options;
     }
 
     @AfterEach
